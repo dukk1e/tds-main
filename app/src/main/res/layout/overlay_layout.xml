@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlayContainer"
+    android:layout_width="wrap_content"
+    android:minWidth="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/overlay_background"
+    android:padding="12dp">
+
+    <!-- Hàng đầu tiên: Tên + nút Close -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:baselineAligned="false"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Vu Nguyen Huong"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:contentDescription="Đóng"
+
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <!-- Các dòng thông tin -->
+    <TextView
+        android:id="@+id/txtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username: "
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/txtJobCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã tìm thấy: 0 job"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtXu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xu hien tai: "
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtCoinEarned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xu kiếm: 0"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Khởi động Tiktok"
+        android:textColor="#FFEB3B"
+        android:textSize="14sp"
+        android:paddingTop="4dp" />
+</LinearLayout>
