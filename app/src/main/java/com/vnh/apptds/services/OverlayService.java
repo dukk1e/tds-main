@@ -19,15 +19,14 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.vnh.apptds.R;
+import com.vnh.apptds.ui.overlay.OverlayDataManager;
 
 public class OverlayService extends Service {
 
     private WindowManager windowManager;
     private View overlayView;
-    private TextView txtUsername;
-    private TextView txtXu;
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
+//    private TextView txtUsername;
+//    private TextView txtXu;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -54,41 +53,39 @@ public class OverlayService extends Service {
 
         // Thêm view vào màn hình
         windowManager.addView(overlayView, params);
-        txtUsername = overlayView.findViewById(R.id.txtUsername);
-        txtXu = overlayView.findViewById(R.id.txtXu);
-
-
-
-        // Chố này em bảo huynh nè
-        if (intent != null) {
-            String username = intent.getStringExtra("username");
-            String xu = intent.getStringExtra("xu");
-
-            Log.d("OverlayTest", "Received user: " + username + ", xu: " + xu);
-            if (txtUsername != null) {
-                txtUsername.setText("Username: " + username);
-            }
-
-           if (txtXu != null) {
-              txtXu.setText("Xu: " + xu);
-            }
-        }
+//        txtUsername = overlayView.findViewById(R.id.txtUsername);
+//        txtXu = overlayView.findViewById(R.id.txtXu);
+//
+//
+//
+//        // Chố này em bảo huynh nè
+//        if (intent != null) {
+//            String username = intent.getStringExtra("username");
+//            String xu = intent.getStringExtra("xu");
+//
+//            Log.d("OverlayTest", "Received user: " + username + ", xu: " + xu);
+//            if (txtUsername != null) {
+//                txtUsername.setText("Username: " + username);
+//            }
+//
+//           if (txtXu != null) {
+//              txtXu.setText("Xu: " + xu);
+//            }
+//        }
 
         // Xử lý nút đóng (X)
             ImageButton btnClose = overlayView.findViewById(R.id.btnClose);
             btnClose.setOnClickListener(v -> {
-            // Xoá overlay
             if (windowManager != null && overlayView != null) {
                 windowManager.removeView(overlayView);
                 overlayView = null;
             }
-
-            // Dừng service
             stopSelf();
-
-            // Thoát hoàn toàn app
             android.os.Process.killProcess(android.os.Process.myPid());
         });
+
+        OverlayDataManager.getInstance().update("test_user", 5, 100, 50, "Đã cập nhật dữ liệu");
+
 
         return START_STICKY;
     }
@@ -98,8 +95,6 @@ public class OverlayService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        // Xoá overlay nếu service bị huỷ
         if (windowManager != null && overlayView != null) {
             windowManager.removeView(overlayView);
         }
@@ -115,6 +110,5 @@ public class OverlayService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
     }
 }

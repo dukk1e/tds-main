@@ -48,4 +48,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("com.android.volley:volley:1.2.1")
     androidTestImplementation ("androidx.test.uiautomator:uiautomator:2.2.0")
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
 }

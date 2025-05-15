@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, 100);
         }
 
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
